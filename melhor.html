@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Melhor Sala</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #333;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    #melhor-sala {
+      background-color: white;
+      color: #27a09e;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(39, 160, 158, 0.15);
+      max-width: 400px;
+      width: 90%;
+      border: 2px solid #27a09e;
+    }
+    #melhor-sala h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #145374;
+    }
+    #melhor-sala p {
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 600;
+      color: #145374;
+    }
+    #melhor-sala span {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #27a09e;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+   <header>
+    <h3>EMEF Profª Maria Moraes de Oliveira</h3>
+    <nav>
+      <a href="index.html">Geral</a> |
+      <a href="sala.html">Gabarito</a> |
+      <a href="melhor.html">Melhor Sala</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="melhor-sala">
+      <h3>Melhor media: 9°A</h3>
+      <p>Média: <span id="media-melhor-sala"></span></p>
+      
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

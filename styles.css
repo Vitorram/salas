@@ -1,0 +1,144 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+body::before {
+  content: "";
+  position: fixed;       /* fixa na viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./86da7065a527262064df6dea6e54cadd.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;         /* opacidade baixa */
+  z-index: -1;           /* atrás de tudo */
+  pointer-events: none;  /* não bloqueia cliques */
+}
+
+header {
+  margin: 0; /* remove margens */
+  padding: 0 20px; /* espaço interno lateral para não colar nas bordas */
+  display: flex;
+  justify-content: space-between; /* espaço entre título e nav */
+  align-items: center;
+  background: #fff; /* opcional, para ver o fundo */
+  height: 60px; /* opcional para altura fixa */
+  box-sizing: border-box; /* importante para padding funcionar como esperado */
+}
+
+/* Faz o h3 do header ficar alinhado à esquerda */
+header h3 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Nav com links alinhados com espaçamento entre eles */
+header nav {
+  display: flex;
+  gap: 30px; /* espaçamento entre os links */
+  padding: 0 10px; /* padding interno para não encostar nas bordas do nav */
+}
+
+/* Remove estilo padrão dos links */
+header nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Opcional: muda cor no hover */
+header nav a:hover {
+  color: #ff69b4;
+}
+
+
+#botoes-salas button {
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  margin: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#botoes-salas button:hover {
+  background-color: #ff85c1;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin-top: 15px;
+}
+
+table th, table td {
+  padding: 8px;
+  text-align: left;
+}
+#pieChart {
+  width: 300px !important;
+  height: 300px !important;
+  
+}
+
+#barChart {
+  width: 400px !important;
+  height: 250px !important;
+}
+#graficos-container {
+  display: flex;
+  gap: 40px;            /* espaço entre os gráficos */
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;       /* alinha verticalmente */
+  flex-wrap: wrap;        /* permite quebrar linha em telas pequenas */
+  margin-top: 100px;         /* garante margem automática lateral */
+  background-color: #fff;
+  width: 1000px;
+  width: 1000px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border-color: #000;
+  border: 1px solid;
+}
+main > h3 {
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: 100px;
+}
+@media (max-width: 768px) {
+  #pieChart, #barChart {
+    width: 300px !important;
+  
+  }
+  main > h3 {
+    margin-top: 40px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #graficos-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #pieChart, #barChart {
+    width: 100% !important;
+    height: auto !important;
+  }
+  main > h3 {
+    margin-top: 30px;
+    font-size: 1.2rem;
+  }
+}
