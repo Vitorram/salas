@@ -118,6 +118,21 @@ main > h3 {
   margin-top: 100px;
 }
 @media (max-width: 768px) {
+    #graficos-container {
+  display: flex;
+  gap: 40px;            /* espaço entre os gráficos */
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;       /* alinha verticalmente */
+  flex-wrap: wrap;        /* permite quebrar linha em telas pequenas */
+  margin-top: 100px;         /* garante margem automática lateral */
+  background-color: #fff;
+  width: 1000px;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border-color: #000;
+  border: 1px solid;
+}
   #pieChart, #barChart {
     width: 300px !important;
   
@@ -130,9 +145,20 @@ main > h3 {
 
 @media (max-width: 480px) {
   #graficos-container {
-    flex-direction: column;
-    gap: 25px;
-  }
+  display: flex;
+  gap: 40px;            /* espaço entre os gráficos */
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;       /* alinha verticalmente */
+  flex-wrap: wrap;        /* permite quebrar linha em telas pequenas */
+  margin-top: 100px;         /* garante margem automática lateral */
+  background-color: #fff;
+  width: 1000px;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border-color: #000;
+  border: 1px solid;
+}
   #pieChart, #barChart {
     width: 100% !important;
     height: auto !important;
