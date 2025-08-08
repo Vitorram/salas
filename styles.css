@@ -103,10 +103,10 @@ table th, table td {
   justify-content: center;  /* centraliza horizontalmente */
   align-items: center;       /* alinha verticalmente */
   flex-wrap: wrap;        /* permite quebrar linha em telas pequenas */
-  margin-top: 100px;         /* garante margem automática lateral */
+  margin:0 auto;         /* garante margem automática lateral */
   background-color: #fff;
   width: 1000px;
-  width: 1000px;
+  width: 500px;
   margin: 0 auto;
   border-radius: 10px;
   border-color: #000;

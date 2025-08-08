@@ -81,7 +81,7 @@ function criarGraficos() {
         legend: {
           labels: {
             font: {
-              size: 15, // Aumenta o tamanho da fonte da legenda
+              size: 27, // Aumenta o tamanho da fonte da legenda
               weight: 'normal',
             }
           }
