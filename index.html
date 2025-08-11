@@ -5,6 +5,49 @@
   <title>Geral - Salas</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    .btn-container {
+  display: flex;
+  gap: 10px;              /* Espaço entre os botões */
+  margin: 20px 0;         /* Espaço acima e abaixo */
+  justify-content: center;/* Centraliza na tela */
+}
+
+.btn-download {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-download:hover {
+  background-color: #45a049;
+}
+
+.btn-download.pdf {
+  background-color: #2196F3;
+}
+
+.btn-download.pdf:hover {
+  background-color: #1976D2;
+}
+
+.btn-download svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
+  </style>
 </head>
 <body>
 
@@ -19,20 +62,97 @@
 <br><br>
   <main>
     
-    <main> <h3 style="margin: 0 auto;">Gráficos Gerais das Salas</h3>
-  <div id="graficos-container">
-  <canvas id="pieChart" width="400" height="400"></canvas>
-  <canvas id="barChart" width="600" height="400"></canvas>
-  <ul>  
-    <li>9 ano A: </li>
-    <li>9 ano B: </li>
-    <li>9 ano C: </li>
-    <li>9 ano D: </li>
-    <li>9 ano E: </li>
-  </ul>
+    <h3 style="margin: 0 auto;">Gráficos Gerais das Salas</h3>
+
+    <!-- Botão para baixar a planilha -->
+    <div class="btn-container">
+  <!-- Botão para baixar a planilha -->
+  <a href="notas.xlsx" download class="btn-download">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h6.66V9h3.84L12 2z"/>
+    </svg>
+    Baixar Planilha
+  </a>
+
+  <!-- Botão para gerar PDF com gráficos -->
+  <button id="btnPDF" class="btn-download pdf">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 
+               1.1.9 2 2 2h12c1.1 0 2-.9 
+               2-2V8l-6-6zm2 16h-4v-1h4v1zm0-3h-4v-1h4v1zm-3-5V3.5L18.5 
+               10H13z"/>
+    </svg>
+    Baixar PDF
+  </button>
 </div>
 
+    <div id="graficos-container">
+      <canvas id="pieChart" width="400" height="400"></canvas>
+      <canvas id="barChart" width="600" height="400"></canvas>
+      <ul id="lista-turmas">  
+        <li><span style="font-weight: bold;">9º ano A</span>: 80 pontos</li>
+        <li><span style="font-weight: bold;">9º ano B</span>: 76 pontos</li>
+        <li><span style="font-weight: bold;">9º ano C</span>: 85 pontos</li>
+        <li><span style="font-weight: bold;">9º ano D</span>: 70 pontos</li>
+        <li><span style="font-weight: bold;">9º ano E</span>: 90 pontos</li>
+      </ul>
+    </div>
+
   </main>
+
+  <script>
+    document.getElementById("btnPDF").addEventListener("click", async () => {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF();
+
+      // Data atual formatada
+      const hoje = new Date();
+      const dataFormatada = hoje.toLocaleDateString("pt-BR");
+
+      // Cabeçalho
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(14);
+      pdf.text("EMEF Profª Maria Moraes de Oliveira", 10, 10);
+      pdf.setFontSize(10);
+      pdf.text(`Data: ${dataFormatada}`, 170, 10, { align: "right" });
+
+      pdf.setFont("helvetica", "normal");
+      pdf.setFontSize(12);
+      pdf.text("Relatório de Desempenho das Salas", 10, 20);
+
+      // Captura os gráficos como imagens
+      const pieImg = document.getElementById("pieChart").toDataURL("image/png", 1.0);
+      const barImg = document.getElementById("barChart").toDataURL("image/png", 1.0);
+
+      // Adiciona gráficos um embaixo do outro
+      pdf.addImage(pieImg, "PNG", 30, 30, 150, 100);
+      pdf.addImage(barImg, "PNG", 30, 140, 150, 100);
+
+      // Lista de turmas
+      let turmas = [];
+      document.querySelectorAll("#lista-turmas li").forEach(li => turmas.push(li.innerText));
+
+      pdf.setFontSize(12);
+      pdf.text("Resultados por Turma:", 10, 250);
+      pdf.setFontSize(10);
+      turmas.forEach((texto, index) => {
+        pdf.text(texto, 15, 260 + (index * 6));
+      });
+
+      // Melhor sala
+      const melhorSala = turmas.sort((a,b) => {
+        const pontosA = parseInt(a.match(/\d+/)[0]);
+        const pontosB = parseInt(b.match(/\d+/)[0]);
+        return pontosB - pontosA;
+      })[0];
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(12);
+      pdf.text(`Melhor Sala: ${melhorSala}`, 10, 260 + (turmas.length * 6) + 5);
+
+      // Salvar PDF
+      pdf.save("relatorio_salas.pdf");
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>

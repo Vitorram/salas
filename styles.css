@@ -88,14 +88,14 @@ table th, table td {
   text-align: left;
 }
 #pieChart {
-  width: 300px !important;
-  height: 300px !important;
+  width: 500px !important;
+  height: 500px !important;
   
 }
 
 #barChart {
-  width: 400px !important;
-  height: 250px !important;
+  width: 700px !important;
+  height: 550px !important;
 }
 #graficos-container {
   display: flex;
@@ -106,7 +106,7 @@ table th, table td {
   margin:0 auto;         /* garante margem automática lateral */
   background-color: #fff;
   width: 1000px;
-  width: 500px;
+  height: auto;
   margin: 0 auto;
   border-radius: 10px;
   border-color: #000;
@@ -118,7 +118,7 @@ main > h3 {
   margin-top: 100px;
 }
 @media (max-width: 768px) {
-    #graficos-container {
+  #graficos-container {
   display: flex;
   gap: 40px;            /* espaço entre os gráficos */
   justify-content: center;  /* centraliza horizontalmente */
@@ -126,13 +126,13 @@ main > h3 {
   flex-wrap: wrap;        /* permite quebrar linha em telas pequenas */
   margin-top: 100px;         /* garante margem automática lateral */
   background-color: #fff;
-  width: 1000px;
-  width: 500px;
+  width: 2000px;
+  height: 100vh;
   margin: 0 auto;
   border-radius: 10px;
   border-color: #000;
-  border: 1px solid;
-}
+  border: 1px solid;}
+
   #pieChart, #barChart {
     width: 300px !important;
   
@@ -152,16 +152,16 @@ main > h3 {
   flex-wrap: wrap;        /* permite quebrar linha em telas pequenas */
   margin-top: 100px;         /* garante margem automática lateral */
   background-color: #fff;
-  width: 1000px;
-  width: 500px;
+  width: 2000px;
+  height: 100vh;
   margin: 0 auto;
   border-radius: 10px;
   border-color: #000;
   border: 1px solid;
 }
   #pieChart, #barChart {
-    width: 100% !important;
-    height: auto !important;
+    width: 400px !important;
+    height: 400px !important;
   }
   main > h3 {
     margin-top: 30px;
