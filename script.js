@@ -81,14 +81,14 @@ function criarGraficos() {
         legend: {
           labels: {
             font: {
-              size: 27, // Aumenta o tamanho da fonte da legenda
-              weight: 'normal',
+              size: 50, // Aumenta o tamanho da fonte da legenda
+              weight: 'bold',
             }
           }
         },
         tooltip: {
           bodyFont: {
-            size: 18, // Aumenta o tamanho do texto do tooltip
+            size: 30, // Aumenta o tamanho do texto do tooltip
           }
         }
       }
@@ -114,7 +114,7 @@ function criarGraficos() {
           max: 10,
           ticks: {
             font: {
-              size: 18, // Aumenta o tamanho da fonte dos valores no eixo Y
+              size: 20, // Aumenta o tamanho da fonte dos valores no eixo Y
               weight: 'normal',
             },
           },
@@ -122,7 +122,7 @@ function criarGraficos() {
         x: {
           ticks: {
             font: {
-              size: 18, // Aumenta o tamanho da fonte dos labels no eixo X
+              size: 28, // Aumenta o tamanho da fonte dos labels no eixo X
               weight: 'normal',
             },
           },
@@ -132,8 +132,8 @@ function criarGraficos() {
         legend: {
           labels: {
             font: {
-              size: 20, // Aumenta o tamanho da legenda do gráfico
-              weight: 'normal',
+              size: 30, // Aumenta o tamanho da legenda do gráfico
+              weight: 'bold',
             }
           }
         },
