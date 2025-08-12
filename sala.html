@@ -5,45 +5,52 @@
   <title>Gabarito Fixo Pequeno</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-  main {
-    margin-top: 10px;
-  }
-  #gabarito-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 8px;
+    main {
+      margin-top: 10px;
+    }
 
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-  }
-  .caixinha {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    #gabarito-container {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      justify-content: center;
+      padding: 10px;
+      gap: 8px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      max-width: 1100px;
+    }
 
-    padding: 4px 6px;
-    border: 1.5px solid #27a09e;
-    border-radius: 4px;
-    background-color: #e0f2f1;
-    font-weight: bold;
-    font-size: 0.85rem;
-    user-select: none;
-    width: 130px;
-    height: 130px;
-    justify-content: center;
-  }
-  .caixinha .numero {
-    margin-bottom: 3px;
-    font-size: 0.7rem;
-    color: #1c758a;
-  }
-</style>
+    .caixinha {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      padding: 4px;
+      border: 1.5px solid #27a09e;
+      border-radius: 4px;
+      background-color: #e0f2f1;
+      font-weight: bold;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .caixinha .numero {
+      font-size: 1.2rem;
+      color: #1c758a;
+      margin-bottom: 5px;
+    }
+
+    .caixinha .resposta {
+      font-size: 3rem;
+      color: #0d4745;
+      line-height: 1;
+    }
+  </style>
 </head>
 <body>
-      <header>
+  <header>
     <h3>EMEF Profª Maria Moraes de Oliveira</h3>
     <nav>
       <a href="index.html">Geral</a> |
@@ -59,30 +66,30 @@
   <script>
     const container = document.getElementById('gabarito-container');
 
-   
-    const gabarito = [
-      'A','B','C','D','E','A','B','C','D','E',
-      'A','B','C','D','E','A','B','C','D','E',
-      'A','B','C','D','E','A','B','C','D','E',
-      'A','B','C','D','E','A','B','C','D','E',
-      'A','B','C','D','E','A','B','C','D','E',
-      'A','B'
-    ];
+   const gabarito = [
+  'A','D','B','C','A','B','D','D','C','B',
+  'C','C','B','C','A','A','C','D','C','B',
+  'A','C','B','D','C','B','A','D','A','B',
+  'C','C','C','D','B','C','C','D','C','D',
+  'A','A','B','D','A','D','D','A','C','B',
+  'A','D'
+];
 
-    for(let i = 0; i < 52; i++) {
+
+    for (let i = 0; i < 52; i++) {
       const div = document.createElement('div');
       div.classList.add('caixinha');
 
       const num = document.createElement('div');
       num.classList.add('numero');
-      num.textContent = `Q${i+1}`;
+      num.textContent = `Q${i + 1}`;
 
       const letra = document.createElement('div');
+      letra.classList.add('resposta');
       letra.textContent = gabarito[i] || '-';
 
       div.appendChild(num);
       div.appendChild(letra);
-
       container.appendChild(div);
     }
   </script>
