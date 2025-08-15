@@ -1,19 +1,19 @@
 // Dados simulados (você pode alimentar com JSON exportado da planilha)
 const dadosSalas = {
   "9A": [
-    { nota: 10 },
+    { nota: 4.66 },
   ],
   "9B": [
-    { nota: 5 },
+    { nota: 4.22 },
   ],
   "9C": [
-    { nota: 3 },
+    { nota: 4 },
   ],
   "9D": [
-    { nota: 1 },
+    { nota: 3.8 },
   ],
   "9E": [
-    { nota: 5.1 },
+    { nota: 4.1 },
   ],
 };
 
